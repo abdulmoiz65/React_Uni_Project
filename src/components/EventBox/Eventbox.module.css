@@ -1,24 +1,27 @@
 /* ================
 EVENT BOX STYLES
 ================ */
-.event-box {
+.eventBox {
   background-color: #112269;
   font-family: 'Montserrat', sans-serif;
 }
-p {
+
+.paragraph {
   font-weight: 400;
   font-size: 18px;
   font-family: 'PT Serif', serif;
   font-style: normal;
 }
-h2 {
+
+.heading {
   font-weight: 800;
   font-size: 30px;
   font-style: normal;
   text-transform: uppercase;
   margin-bottom: 20px;
 }
-.event-button {
+
+.eventButton {
   position: relative;
   display: inline-flex;
   align-items: center;
@@ -33,7 +36,8 @@ h2 {
   transition: color 0.4s ease;
   z-index: 0;
 }
-.event-button::before {
+
+.eventButton::before {
   content: "";
   position: absolute;
   top: 0;
@@ -45,17 +49,21 @@ h2 {
   z-index: -1;
   transition: width 0.4s ease;
 }
-.event-button:hover::before {
+
+.eventButton:hover::before {
   width: 110%;
 }
-.event-button:hover {
+
+.eventButton:hover {
   color: #fff;
 }
-.event-button i {
+
+.eventButton i {
   margin-left: 8px;
   z-index: 1;
   position: relative;
 }
-.external-icon {
+
+.externalIcon {
   font-size: 0.9rem;
 }
