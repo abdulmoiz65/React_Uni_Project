@@ -1,61 +1,7 @@
-/* ================
-EVENT BOX STYLES
-================ */
-.event-box {
-  background-color: #112269;
+body{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
   font-family: 'Montserrat', sans-serif;
-}
-p {
-  font-weight: 400;
-  font-size: 18px;
-  font-family: 'PT Serif', serif;
-  font-style: normal;
-}
-h2 {
-  font-weight: 800;
-  font-size: 30px;
-  font-style: normal;
-  text-transform: uppercase;
-  margin-bottom: 20px;
-}
-.event-button {
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  background: white;
-  color: #000;
-  font-weight: 800;
-  padding: 12px 20px;
-  font-size: 11px;
-  text-decoration: none;
-  overflow: hidden;
-  transition: color 0.4s ease;
-  z-index: 0;
-}
-.event-button::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 50%;
-  width: 0%;
-  height: 100%;
-  background-color: #00328F;
-  transform: translateX(-50%);
-  z-index: -1;
-  transition: width 0.4s ease;
-}
-.event-button:hover::before {
-  width: 110%;
-}
-.event-button:hover {
-  color: #fff;
-}
-.event-button i {
-  margin-left: 8px;
-  z-index: 1;
-  position: relative;
-}
-.external-icon {
-  font-size: 0.9rem;
+  background-color: rgb(246, 246, 247);
 }

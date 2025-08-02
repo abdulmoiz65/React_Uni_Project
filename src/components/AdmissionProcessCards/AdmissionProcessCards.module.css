@@ -1,0 +1,86 @@
+.admissionProcess {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.heading {
+  font-size: 35px;
+  font-weight: 800;
+}
+
+.admissionProcess p {
+  font-family: 'PT Serif', serif;
+  font-weight: 400;
+}
+
+.admissionProcess h6 {
+  font-size: 15px;
+  font-weight: 800 !important;
+}
+
+.admissionProcess img {
+  border-radius: 0;
+}
+
+.cardImageWrapper {
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+}
+
+.cardImageWrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #00328F;
+  color: #fff;
+  font-weight: 700;
+  padding: 12px 20px;
+  font-size: 14px;
+  text-decoration: none;
+  overflow: hidden;
+  transition: color 0.4s ease;
+  border: 2px solid #00328F;
+  z-index: 1;
+  width: 100%;
+  height: 50px;
+  text-align: center;
+}
+
+.button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0%;
+  height: 100%;
+  background-color: #fff;
+  z-index: -1;
+  transition: width 0.4s ease;
+}
+
+.button:hover::before {
+  width: 120%;
+}
+
+.button:hover {
+  color: #00328F;
+}
+
+.button span {
+  font-size: 11px;
+  white-space: normal;
+}
+
+@media (max-width: 576px) {
+  .button span {
+    white-space: normal;
+  }
+}
