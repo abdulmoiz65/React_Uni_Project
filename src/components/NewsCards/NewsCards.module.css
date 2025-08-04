@@ -1,0 +1,62 @@
+.newsSection {
+  font-family: 'Montserrat', sans-serif;
+  padding: 2rem 0;
+    background-color: white;
+}
+
+.cardWrapper {
+  margin: 1rem 3rem 1rem 3rem;
+}
+
+.newsCard {
+  margin-bottom: 1.5rem;
+}
+
+.newsImage {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.newsTitle {
+  font-weight: 800;
+  font-size: 15px;
+  font-style: normal;
+  transition: color 0.5s ease;
+  display: block;
+  margin-top: 0.5rem;
+  cursor: pointer;
+}
+
+.newsTitle:hover {
+  color: #112269;
+}
+
+.newsDescription {
+  font-weight: 400;
+  font-size: 15px;
+  font-family: 'PT Serif', serif;
+  font-style: normal;
+  margin-top: 0.3rem;
+}
+
+.newsDate {
+  font-weight: 800;
+  font-style: normal;
+  font-size: 15px;
+  color: rgb(141, 141, 141);
+  margin-top: 0.3rem;
+}
+
+/* Responsive Image Heights */
+@media (max-width: 991.98px) {
+  .newsImage {
+    height: 140px;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .newsImage {
+    height: 110px;
+  }
+}

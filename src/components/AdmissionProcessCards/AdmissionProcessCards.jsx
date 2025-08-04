@@ -45,7 +45,7 @@ const cardData = [
       "Discover the requirements you must meet to apply, the documentation you’ll have to submit, and the general timeline of the application process.",
     image: "./assets/maju2.jpg",
     linkText: "LEARN MORE ABOUT ADMISSIONS",
-    link: "/admissions",
+    link: "http://ie.edu/",
   },
   {
     title: "Financial Aid",

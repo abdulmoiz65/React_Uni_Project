@@ -1,0 +1,79 @@
+.sustainabilitySection {
+  background-color: #112269;
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.sustainabilityContent {
+  padding: 60px 40px;
+}
+
+.sustainabilityContent h2 {
+  font-weight: 800;
+  font-size: 30px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.sustainabilityContent p {
+  font-weight: 400;
+  font-size: 18px;
+  font-family: 'PT Serif', serif;
+  line-height: 1.6;
+  margin-bottom: 30px;
+  max-width: 700px;
+}
+
+.sustainabilityButton {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: white;
+  color: #000;
+  font-weight: 800;
+  padding: 12px 20px;
+  font-size: 13px;
+  text-decoration: none;
+  overflow: hidden;
+  transition: color 0.4s ease;
+  z-index: 0;
+}
+
+.sustainabilityButton::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 0%;
+  height: 100%;
+  background-color: #00328f;
+  transform: translateX(-50%);
+  z-index: -1;
+  transition: width 0.4s ease;
+}
+
+.sustainabilityButton:hover::before {
+  width: 110%;
+}
+
+.sustainabilityButton:hover {
+  color: #fff;
+}
+
+.sustainabilityImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@media (max-width: 767.98px) {
+  .sustainabilityContent {
+    padding: 40px 20px;
+    text-align: center;
+  }
+
+  .sustainabilityImage {
+    margin-top: 20px;
+  }
+}
