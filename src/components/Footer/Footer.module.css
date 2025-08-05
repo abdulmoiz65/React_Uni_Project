@@ -1,0 +1,86 @@
+.majuFooter {
+  background-color: #112269;
+  color: white;
+  padding: 50px 20px 30px;
+  font-family: 'Montserrat', sans-serif;
+  font-style: normal;
+}
+
+.heading {
+  font-weight: 800;
+  font-size: 35px;
+  color: white;
+  margin-bottom: 20px;
+  font-style: normal;
+}
+
+.footerLinks a {
+  font-weight: 800;
+  font-size: 13px;
+  color: white;
+  text-decoration: none;
+}
+
+.majuFooter a:hover {
+  opacity: 0.8;
+}
+
+.footerLogo img {
+  height: 50px;
+}
+
+.socialIcons {
+  /* container styles if needed */
+}
+
+.socialLink {
+  font-size: 20px;
+  margin-right: 22px;
+  color: white;
+  transition: transform 0.3s ease-in-out;
+  display: inline-block;
+}
+
+.socialLink:hover {
+  transform: scale(1.25);
+  opacity: 0.8;
+  animation: bounce 0.4s ease;
+}
+
+@keyframes bounce {
+  0%   { transform: scale(1); }
+  50%  { transform: scale(1.35); }
+  70%  { transform: scale(1.1); }
+  100% { transform: scale(1.25); }
+}
+
+.footerLinks ul {
+  padding-left: 0;
+  list-style: none;
+}
+
+.footerLinks li {
+  margin-bottom: 10px;
+}
+
+.footerBottom {
+  font-family: 'PT Serif', serif;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  margin-top: 40px;
+  padding-top: 20px;
+  font-size: 14px;
+  font-weight: 300;
+}
+
+.footerCopy {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.externalIcon {
+  margin-left: 5px;
+  font-size: 0.75rem;
+}
