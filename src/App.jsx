@@ -4,6 +4,7 @@ import Sustainability from "./components/Sustainability/Sustainability";
 import DegreeCards from "./components/DegreeCards/DegreeCards";
 import AdmissionProcessCards from "./components/AdmissionProcessCards/AdmissionProcessCards";
 import EventBox from "./components/EventBox/EventBox";
+import WeRecommend from "./components/WeRecommend/WeRecommend";
 import Footer from "./components/Footer/Footer";
 
 
@@ -16,6 +17,7 @@ function App() {
       <DegreeCards />
       <AdmissionProcessCards />
       <EventBox />
+      <WeRecommend />
       <Footer />
     </div>
   );

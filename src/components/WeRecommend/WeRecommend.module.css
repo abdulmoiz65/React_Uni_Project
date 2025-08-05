@@ -1,0 +1,45 @@
+.importantLinks {
+  padding-top: 40px;
+  padding-bottom: 40px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.importantLinksHeading {
+  font-size: 35px;
+  font-weight: 800;
+  font-style: normal;
+  display: block;
+  margin-bottom: 2rem;
+  letter-spacing: 1px;
+}
+
+.importantLinksList ul {
+  padding-left: 0;
+}
+
+.importantLinksList ul li {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  list-style: none;
+  text-transform: uppercase;
+  font-weight: 800;
+  font-size: 11px;
+}
+
+.importantLinksList ul li a {
+  text-decoration: none;
+  color: #112269;
+  font-size: 11px;
+  font-weight: 800;
+  transition: opacity 0.2s;
+}
+
+.importantLinksList ul li a:hover {
+  opacity: 0.7;
+}
+
+.externalLink {
+  width: 25px;
+  padding-left: 0.5rem;
+  font-size: 1em;
+}
