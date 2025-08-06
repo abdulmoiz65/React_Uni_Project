@@ -13,6 +13,7 @@ const recommendLinks = [
   [
     { text: "FINANCIAL AID", href: "scholarships-link.html" },
     { text: "ADMISSIONS", href: "admissions-link.html" },
+    { text: "ADMISSIONS", href: "admissions-link.html" },
   ],
   [
     { text: "FEE STRUCTURE", href: "feestructure-link.html" },
