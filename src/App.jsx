@@ -1,5 +1,6 @@
 import NewsLater from "./components/NewsLater/NewsLater";
 import NewsCards from "./components/NewsCards/NewsCards";
+import Inspire from './components/Inspire/Inspire';
 import Sustainability from "./components/Sustainability/Sustainability";
 import DegreeCards from "./components/DegreeCards/DegreeCards";
 import AdmissionProcessCards from "./components/AdmissionProcessCards/AdmissionProcessCards";
@@ -13,6 +14,7 @@ function App() {
     <div>
       <NewsLater />
       <NewsCards />
+       <Inspire />
       <Sustainability />
       <DegreeCards />
       <AdmissionProcessCards />
