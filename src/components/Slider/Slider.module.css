@@ -1,0 +1,254 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=PT+Serif&display=swap');
+
+.heroSlider {
+  position: relative;
+  overflow: hidden;
+  font-family: 'Montserrat', Arial, sans-serif;
+}
+
+.slidesWrapper {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  transition: transform 0.7s cubic-bezier(.77,0,.18,1);
+  will-change: transform;
+}
+
+.slide {
+  min-width: 100vw;
+  height: 100vh;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  transition: none;
+}
+
+.slide::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  z-index: 1;
+}
+
+.slideContent {
+  position: relative;
+  z-index: 2;
+  color: #fff;
+  margin-left: 6rem;
+  max-width: 900px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.slideContent h1 {
+  font-size: 35px;
+  font-weight: 800;
+  font-style: normal;
+  margin-bottom: 18px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.slideContent p {
+  max-width: 600px;
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+  font-weight: 400;
+  font-family: 'PT Serif', serif;
+  font-style: italic;
+  color: #eaeaea;
+}
+
+.slideContent button {
+  font-weight: 800;
+  font-size: 13px;
+  padding: 18px 38px;
+  border-radius: 0;
+  border: none;
+  background: #fff;
+  color: #222;
+  transition: background 0.2s, color 0.2s;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.slideContent button:hover {
+  background: #222;
+  color: #fff;
+}
+
+/* SVG Arrows */
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  transition: color 0.2s;
+  user-select: none;
+  outline: none;
+  padding: 0;
+}
+
+.arrow.left { 
+  left: 24px; 
+}
+
+.arrow.right { 
+  right: 24px; 
+}
+
+.arrow svg {
+  width: 24px;
+  height: 24px;
+  stroke: #fff;
+  stroke-width: 2.2;
+  fill: none;
+  display: block;
+}
+
+.arrow:hover svg {
+  stroke: #bbb;
+}
+
+/* Dots */
+.sliderDots {
+  position: absolute;
+  left: 50%;
+  bottom: 100px;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 14px;
+  z-index: 20;
+}
+
+.dot {
+  width: 13px;
+  height: 13px;
+  background: rgba(255,255,255,0.22);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s, border 0.2s;
+  position: relative;
+  font-size: 1rem;
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+
+.dot.active {
+  background: #fff;
+  border: 1px solid #bbb;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.dotIcon {
+  color: #222;
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 400;
+  pointer-events: auto;
+  cursor: pointer;
+}
+
+.dot:not(.active) .dotIcon {
+  display: none;
+}
+
+.dotIcon svg {
+  width: 13px;
+  height: 13px;
+  display: block;
+}
+
+/* Scroll Down */
+.scrollDown {
+  position: absolute;
+  left: 50%;
+  bottom: 30px;
+  transform: translateX(-50%);
+  color: #fff;
+  text-align: center;
+  z-index: 30;
+  font-size: 1.1rem;
+  letter-spacing: 1px;
+  opacity: 0.95;
+  font-family: 'Georgia', serif;
+  font-style: italic;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+.scrollDown svg {
+  display: block;
+  margin: 6px auto 0 auto;
+  width: 18px;
+  height: 18px;
+  stroke: #fff;
+  stroke-width: 2.2;
+  fill: none;
+  animation: bounce 1.5s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% { 
+    transform: translateY(0);
+  }
+  50% { 
+    transform: translateY(10px);
+  }
+}
+
+@media (max-width: 900px) {
+  .slideContent {
+    margin-left: 24px;
+    max-width: 90vw;
+  }
+  
+  .slideContent h1 {
+    font-size: 1.5rem;
+  }
+  
+  .arrow {
+    display: none;
+  }
+  
+  .arrow svg {
+    width: 18px;
+    height: 18px;
+  }
+  
+  .sliderDots {
+    gap: 8px;
+  }
+  
+  .dot {
+    width: 14px;
+    height: 14px;
+    font-size: 0.7rem;
+  }
+  
+  .dotIcon svg {
+    width: 9px;
+    height: 9px;
+  }
+}

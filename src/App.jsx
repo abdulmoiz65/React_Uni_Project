@@ -7,11 +7,13 @@ import AdmissionProcessCards from "./components/AdmissionProcessCards/AdmissionP
 import EventBox from "./components/EventBox/EventBox";
 import WeRecommend from "./components/WeRecommend/WeRecommend";
 import Footer from "./components/Footer/Footer";
+import Slider from "./components/Slider/Slider";
 
 
 function App() {
   return (
     <div>
+      <Slider />
       <NewsLater />
       <NewsCards />
        <Inspire />
