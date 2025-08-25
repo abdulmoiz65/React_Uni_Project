@@ -1,0 +1,269 @@
+:root {
+  --tile-radius: 0px;
+  --overlay-blue: rgba(12, 54, 120, 0.92);
+  --brand-blue: #0d3b8e;
+}
+
+#success-stories-section {
+  font-family: "Montserrat", sans-serif;
+}
+
+#success-stories-section span {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 800;
+  font-size: 35px;
+}
+
+#success-stories-section p {
+  font-family: "PT Serif", serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.65;
+  color: #6c757d;
+}
+
+/* Person Card Grid */
+.personCard {
+  display: block;
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--tile-radius);
+  aspect-ratio: 12/18;
+  background: #e9ecef;
+  text-decoration: none;
+  cursor: pointer;
+}
+.personCard img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.35s ease, filter 0.35s ease;
+  filter: brightness(0.9);
+}
+.personCard:hover img,
+.personCard:focus-within img {
+  transform: scale(1.02);
+  filter: brightness(0.7);
+}
+.nameOverlay {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 12px 14px;
+  color: #fff;
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: 0.92rem;
+  letter-spacing: 0.4px;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0.45) 50%,
+    rgba(0, 0, 0, 0.75) 100%
+  );
+  transition: opacity 0.2s ease;
+  z-index: 1;
+}
+.hoverLayer {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: left;
+  gap: 16px;
+  padding: 26px;
+  color: #fff;
+  background: var(--overlay-blue);
+  opacity: 0;
+  transform: scale(0.98);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  z-index: 2;
+}
+.personCard:hover .hoverLayer,
+.personCard:focus-within .hoverLayer {
+  opacity: 1;
+  transform: scale(1);
+}
+.personCard:hover .nameOverlay,
+.personCard:focus-within .nameOverlay {
+  opacity: 0;
+}
+.hoverLayer blockquote {
+  font-size: 15px;
+  font-weight: 400;
+  font-family: "PT Serif", serif;
+}
+.hoverCta {
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  display: inline-flex;
+  align-items: center;
+}
+.arrow {
+  margin-left: 0.5rem;
+  font-size: 11px;
+}
+
+/* Slider */
+.storyPanel {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--tile-radius);
+  min-height: 430px;
+  color: #fff;
+  background: #0b2a68;
+  height: 100%;
+  text-decoration: none;
+  display: block;
+  cursor: pointer;
+}
+.panelImg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.55);
+  transform: scale(1.02);
+}
+.panelTint {
+  position: absolute;
+  inset: 0;
+  background: var(--overlay-blue);
+  mix-blend-mode: multiply;
+}
+.panelContent {
+  position: relative;
+  z-index: 2;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-between;
+}
+.storyPanel blockquote {
+  font-size: 15px;
+  font-weight: 400;
+  font-family: "PT Serif", serif;
+}
+.storyMeta {
+  margin-top: 18px;
+  opacity: 0.95;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  letter-spacing: 0.5px;
+}
+.panelCta {
+  color: #fff;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  display: inline-flex;
+  align-items: center;
+}
+.panelCta .arrow {
+  font-size: 1.2rem;
+  margin-left: 0.5rem;
+  transition: transform 0.25s ease;
+}
+.storyPanel:hover .panelCta .arrow,
+.storyPanel:focus-visible .panelCta .arrow {
+  transform: translateX(3px);
+}
+.storyPanel:focus-visible {
+  outline: 3px solid var(--brand-blue);
+  outline-offset: 2px;
+}
+
+/* Swiper */
+.successSwiper {
+  padding-bottom: 36px;
+}
+.successSwiper .swiper-slide {
+  height: auto;
+}
+.swiper-pagination-bullet {
+  width: 8px;
+  height: 8px;
+  background: var(--brand-blue);
+  opacity: 0.5;
+}
+.swiper-pagination-bullet-active {
+  opacity: 1;
+}
+.swiper-button-prev,
+.swiper-button-next {
+  color: #fff;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.35);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+}
+.swiper-button-prev::after,
+.swiper-button-next::after {
+  font-size: 16px;
+  font-weight: 700;
+}
+.swiper-button-disabled {
+  opacity: 0.4 !important;
+}
+
+@media (max-width: 420px) {
+  .storyPanel {
+    min-height: 380px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .personCard img,
+  .hoverLayer,
+  .panelCta .arrow {
+    transition: none;
+  }
+}
+
+/* CTA Button */
+.StoriesButton {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: white;
+  color: #000;
+  font-weight: 800;
+  padding: 12px 20px;
+  font-size: 13px;
+  text-decoration: none;
+  overflow: hidden;
+  transition: color 0.4s ease;
+  z-index: 0;
+  border: 1px solid black;
+}
+.StoriesButton::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 0%;
+  height: 100%;
+  background-color: #00328f;
+  transform: translateX(-50%);
+  z-index: -1;
+  transition: width 0.4s ease;
+}
+.StoriesButton:hover::before {
+  width: 110%;
+}
+.StoriesButton:hover {
+  color: #fff;
+  border: 1px solid #00328f;
+}
+.StoriesButton i {
+  margin-left: 8px;
+  font-size: 0.9rem;
+}
