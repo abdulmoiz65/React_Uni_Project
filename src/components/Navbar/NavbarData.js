@@ -48,6 +48,8 @@ const navbarData = {
       ],
     },
 
+    
+
     admissions: {
       columns: [
         {
