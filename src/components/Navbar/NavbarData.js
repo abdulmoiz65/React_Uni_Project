@@ -1,6 +1,6 @@
-const navbarData = {
+const NavbarData = {
   topLinks: [
-    { label: "About MAJU", href: "#", hasMega: true },
+    { label: "Maju", href: "#", hasMega: true },
     { label: "Programs", href: "#", hasMega: true },
     { label: "Admissions", href: "#", hasMega: true },
     { label: "Faculty & Research", href: "#" },
@@ -9,6 +9,20 @@ const navbarData = {
   ],
 
   megaMenu: {
+
+    maju: {
+      columns: [
+        {
+          title: "About MAJU",
+          links: ["History", "Mission & Vision", "Leadership"],
+        },
+        {
+          title: "Community",
+          links: ["Student Life", "Alumni", "Industry Partners"],
+        },
+      ],
+    },
+
     programs: {
       columns: [
         {
@@ -20,7 +34,7 @@ const navbarData = {
             "Programs in Law, International Affairs & Public Policy",
             "Programs in Leadership & Talent Development",
             "Programs in Marketing, Communication & Sales",
-            "Programs in Science, Technology & Data",
+            "abc",
           ],
         },
         {
@@ -47,9 +61,6 @@ const navbarData = {
         },
       ],
     },
-
-    
-
     admissions: {
       columns: [
         {
@@ -114,4 +125,4 @@ const navbarData = {
   ],
 };
 
-export default navbarData;
+export default NavbarData;

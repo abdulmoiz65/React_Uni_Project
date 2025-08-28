@@ -1,6 +1,6 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
-import styles from "./Navbar.module.css";
-import NavbarData from "./NavbarData"; // ✅ import data
+import styles from "./Navbar1.module.css";
+import NavbarData from "./Navbar1Data"; // ✅ single source of truth
 
 export default function Navbar({
   logoWhite = "/assets/logo/logowhite.png",
@@ -8,22 +8,19 @@ export default function Navbar({
   brandAltWhite = "IE University Logo (white)",
   brandAltColor = "MAJU University Logo (color)",
   ctaHref = "#",
-  // ✅ Use NavbarData defaults instead of local duplication
-  topLinks = NavbarData.topLinks,
-  megaMenu = NavbarData.megaMenu,
-  nextPanelData = NavbarData.nextPanelData,
-  offcanvasExtra = NavbarData.offcanvasExtra,
 }) {
+  const { topLinks, megaMenu, nextPanelData, offcanvasExtra } = NavbarData;
+
   const [scrolled, setScrolled] = useState(false);
   const [navHover, setNavHover] = useState(false);
 
-  // Mega menu (desktop)
+  // Mega menu (desktop) hover intent
   const [megaOpen, setMegaOpen] = useState(false);
   const hoverTimer = useRef(null);
 
-  // Offcanvas (mobile)
+  // Offcanvas state (mobile)
   const [offcanvasOpen, setOffcanvasOpen] = useState(false);
-  const [openMenuKey, setOpenMenuKey] = useState(null);
+  const [openMenuKey, setOpenMenuKey] = useState(null); 
   const [nextOpen, setNextOpen] = useState(false);
   const [nextTitle, setNextTitle] = useState("TITLE");
   const [nextLinks, setNextLinks] = useState([]);
@@ -49,7 +46,7 @@ export default function Navbar({
     return () => window.removeEventListener("resize", onResize);
   }, [offcanvasOpen]);
 
-  // Lock body scroll
+  // Lock body scroll when offcanvas open
   useEffect(() => {
     if (offcanvasOpen) {
       document.body.classList.add("offcanvas-open");
@@ -64,7 +61,7 @@ export default function Navbar({
     };
   }, [offcanvasOpen]);
 
-  // Hover handlers
+  // Desktop hover
   const handleNavEnter = () => {
     if (window.innerWidth >= 992) setNavHover(true);
   };
@@ -72,19 +69,14 @@ export default function Navbar({
     if (window.innerWidth >= 992) setNavHover(false);
   };
 
-// State
-const [openMegaKey, setOpenMegaKey] = useState(null);
-
-// Handlers
-const openMega = (key) => {
-  clearTimeout(hoverTimer.current);
-  setOpenMegaKey(key);
-};
-const delayedCloseMega = () => {
-  clearTimeout(hoverTimer.current);
-  hoverTimer.current = setTimeout(() => setOpenMegaKey(null), 80);
-};
-
+  const openMega = () => {
+    clearTimeout(hoverTimer.current);
+    setMegaOpen(true);
+  };
+  const delayedCloseMega = () => {
+    clearTimeout(hoverTimer.current);
+    hoverTimer.current = setTimeout(() => setMegaOpen(false), 80);
+  };
 
   // Offcanvas helpers
   const toggleOffcanvas = (open) => {
@@ -112,7 +104,6 @@ const delayedCloseMega = () => {
     if (h && h !== "#") toggleOffcanvas(false);
   };
 
-  // Derived classes
   const topNavClass = useMemo(() => {
     let cls = styles.topNav;
     if (navHover) cls += ` ${styles.navHover}`;
@@ -123,6 +114,7 @@ const delayedCloseMega = () => {
 
   return (
     <>
+      {/* Backdrop */}
       {offcanvasOpen && (
         <div
           className="offcanvas-backdrop fade show"
@@ -145,63 +137,56 @@ const delayedCloseMega = () => {
               <img src={logoColor} alt={brandAltColor} className={styles.logoColor} />
             </div>
 
-            {/* Desktop nav */}
+            {/* Center Nav */}
             <nav className={styles.navLinks}>
-             {topLinks.map((item, idx) => {
-  if (item.hasMega) {
-    const key = item.label.toLowerCase();
-    const isOpen = openMegaKey === key;
+              {topLinks.map((item, idx) => {
+                const key = item.label.toLowerCase().replace(/\s+/g, "");
+                const menuData = megaMenu[key];
 
-    return (
-      <div
-        key={idx}
-        className={`${styles.navItemWithMega} ${isOpen ? styles.megaOpen : ""}`}
-        onMouseEnter={() => window.innerWidth >= 992 && openMega(key)}
-        onMouseLeave={() => window.innerWidth >= 992 && delayedCloseMega()}
-      >
-        <a href={item.href} onClick={(e) => e.preventDefault()}>
-          {item.label}
-        </a>
+                if (item.hasMega && menuData) {
+                  return (
+                    <div
+                      key={idx}
+                      className={`${styles.navItemWithMega} ${megaOpen ? styles.megaOpen : ""}`}
+                      onMouseEnter={() => window.innerWidth >= 992 && openMega()}
+                      onMouseLeave={() => window.innerWidth >= 992 && delayedCloseMega()}
+                    >
+                      <a href={item.href} onClick={(e) => e.preventDefault()}>
+                        {item.label}
+                      </a>
 
-        {/* Mega menu */}
-        <div
-          className={styles.megaMenu}
-          onMouseEnter={() => window.innerWidth >= 992 && openMega(key)}
-          onMouseLeave={() => window.innerWidth >= 992 && delayedCloseMega()}
-          style={{
-            display: window.innerWidth >= 992 && isOpen ? "block" : "none",
-          }}
-        >
-          <div className={styles.megaMenuInner}>
-            {megaMenu[key]?.columns?.map((col, cIdx) => (
-              <div key={cIdx}>
-                <h6>{col.title}</h6>
-                {col.links.map((l, lIdx) => (
-                  <a key={lIdx} href="#">
-                    {l}
+                      <div className={styles.megaMenu}>
+                        <div className={styles.megaMenuInner}>
+                          {menuData.columns.map((col, cIdx) => (
+                            <div key={cIdx}>
+                              <h6>{col.title}</h6>
+                              {col.links.map((l, lIdx) => (
+                                <a key={lIdx} href="#">
+                                  {l}
+                                </a>
+                              ))}
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  );
+                }
+
+                return (
+                  <a key={idx} href={item.href}>
+                    {item.label}
                   </a>
-                ))}
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-    );
-  }
-  return (
-    <a key={idx} href={item.href}>
-      {item.label}
-    </a>
-  );
-})}
-
+                );
+              })}
             </nav>
 
-            {/* Right controls */}
+            {/* Right Controls */}
             <div className={styles.rightCtrls}>
               <div className={styles.topButton}>
                 <a href={ctaHref}>FIND YOUR PROGRAM</a>
               </div>
+
               <button
                 className={styles.hamburger}
                 aria-label="Open menu"
@@ -218,11 +203,9 @@ const delayedCloseMega = () => {
         </header>
       </div>
 
-      {/* Offcanvas (mobile) */}
+      {/* Offcanvas */}
       <div
-        className={`offcanvas offcanvas-end ${styles.offcanvasIe} ${
-          offcanvasOpen ? "show" : ""
-        }`}
+        className={`offcanvas offcanvas-end ${styles.offcanvasIe} ${offcanvasOpen ? "show" : ""}`}
         role="dialog"
         aria-modal={offcanvasOpen ? "true" : "false"}
         style={{
@@ -255,40 +238,40 @@ const delayedCloseMega = () => {
           </a>
 
           <nav className={`${styles.navLinks} mt-3`}>
-            {topLinks.map((item, idx) => (
-              <React.Fragment key={idx}>
-                <button
-                  className={`${styles.mainLink} ${
-                    openMenuKey === item.label.toLowerCase() ? styles.open : ""
-                  }`}
-                  onClick={() => toggleAccordion(item.label.toLowerCase())}
-                  type="button"
-                >
-                  {item.label} <span className={styles.icon}>+</span>
-                </button>
+            {topLinks.map((item, idx) => {
+              const key = item.label.toLowerCase().replace(/\s+/g, "");
+              const menuData = megaMenu[key];
 
-                {item.hasMega && (
-                  <div
-                    className={styles.submenu}
-                    style={{
-                      display:
-                        openMenuKey === item.label.toLowerCase() ? "block" : "none",
-                    }}
+              return (
+                <div key={idx}>
+                  <button
+                    className={`${styles.mainLink} ${openMenuKey === key ? styles.open : ""}`}
+                    onClick={() => toggleAccordion(key)}
+                    type="button"
                   >
-                    {megaMenu[item.label.toLowerCase()]?.columns?.map((col, cIdx) => (
-                      <div
-                        key={cIdx}
-                        className={styles.submenuItem}
-                        onClick={() => openNextPanel(col.title)}
-                      >
-                        {col.title}{" "}
-                        <i className={`fa-solid fa-arrow-right ${styles.arrow}`}></i>
-                      </div>
-                    ))}
-                  </div>
-                )}
-              </React.Fragment>
-            ))}
+                    {item.label} <span className={styles.icon}>+</span>
+                  </button>
+
+                  {item.hasMega && menuData && (
+                    <div
+                      className={styles.submenu}
+                      style={{ display: openMenuKey === key ? "block" : "none" }}
+                    >
+                      {menuData.columns.map((col, cIdx) => (
+                        <div
+                          key={cIdx}
+                          className={styles.submenuItem}
+                          onClick={() => openNextPanel(col.title)}
+                        >
+                          {col.title}{" "}
+                          <i className={`fa-solid fa-arrow-right ${styles.arrow}`}></i>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              );
+            })}
           </nav>
 
           <div className={`mt-4 ${styles.extraLinks}`}>
@@ -297,12 +280,8 @@ const delayedCloseMega = () => {
             ))}
           </div>
 
-          {/* Next panel */}
-          <div
-            className={`${styles.offcanvasNext} ${
-              nextOpen ? styles.openPanel : ""
-            }`}
-          >
+          {/* Next Canvas Panel */}
+          <div className={`${styles.offcanvasNext} ${nextOpen ? styles.openPanel : ""}`}>
             <button className={styles.backBtn} onClick={closeNextPanel} type="button">
               <i className={`fa-solid fa-arrow-left ${styles.arrow}`}></i> BACK
             </button>
