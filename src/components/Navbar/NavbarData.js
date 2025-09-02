@@ -3,7 +3,7 @@ const NavbarData = {
     { label: "Maju", href: "#", hasMega: true },
     { label: "Programs", href: "#", hasMega: true },
     { label: "Admissions", href: "#", hasMega: true },
-    { label: "Faculty & Research", href: "#" },
+    { label: "Faculty", href: "#", hasMega: true },
     { label: "MAJU Experience", href: "#" },
     { label: "News & Events", href: "#" },
   ],
@@ -72,6 +72,28 @@ const NavbarData = {
           links: ["Apply Now", "Requirements", "Scholarships"],
         },
       ],
+    },
+
+    faculty: {
+      columns: [
+        {
+          title: "Faculty",
+          links: ["Our Faculty", "Faculty Profiles", "Join Our Team"],
+        },
+        {
+          title: "Research",
+          links: ["Research Centers", "Publications", "Innovation & Impact"],
+        },
+      ],
+    },
+
+    Faculty: {
+      columns: [
+        { 
+          title: "Faculty",
+          links: ["Our Faculty", "Faculty Profiles", "Join Our Team"],
+        },
+      ]
     },
 
     about: {

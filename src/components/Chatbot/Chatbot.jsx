@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import Fuse from 'fuse.js';
 import styles from './Chatbot.module.css';
+import data from '../Data/chatbot_data.json';
 
 const Chatbot = () => {
     const [messages, setMessages] = useState([]);
@@ -10,33 +11,21 @@ const Chatbot = () => {
     const [fuse, setFuse] = useState(null);
     const chatBodyRef = useRef(null);
 
-    useEffect(() => {
-        // Load JSON data
-        const loadChatData = async () => {
-            try {
-                const response = await fetch('/src/data/chatbot_data.json');
-                const data = await response.json();
-                
-                const filteredData = data.filter(row => row.question && row.answer);
-                setChatData(filteredData);
-                
-                // Initialize Fuse for fuzzy search with Roman Urdu support
-                const fuseOptions = {
-                    keys: ['question', 'keywords', 'answer', 'romanUrdu'],
-                    threshold: 0.4,
-                    includeScore: true,
-                    ignoreLocation: true,
-                    findAllMatches: true,
-                    minMatchCharLength: 2,
-                };
-                setFuse(new Fuse(filteredData, fuseOptions));
-            } catch (error) {
-                console.error('Error loading chat data:', error);
-            }
-        };
+useEffect(() => {
+  const filteredData = data.filter(row => row.question && row.answer);
+  setChatData(filteredData);
 
-        loadChatData();
-    }, []);
+  const fuseOptions = {
+    keys: ['question', 'keywords', 'answer', 'romanUrdu'],
+    threshold: 0.4,
+    includeScore: true,
+    ignoreLocation: true,
+    findAllMatches: true,
+    minMatchCharLength: 2,
+  };
+  setFuse(new Fuse(filteredData, fuseOptions));
+}, []);
+
 
     useEffect(() => {
         // Scroll to bottom when new messages are added

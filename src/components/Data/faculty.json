@@ -1,0 +1,102 @@
+[
+  {
+    "id": 1,
+    "slug": "adam-caplowe-1",
+    "name": "Adam Caplowe",
+    "photo": "https://randomuser.me/api/portraits/men/32.jpg",
+    "email": "adam.caplowe@university.edu",
+    "phone": "+1 (555) 010-1001",
+    "category": "Adjunct",
+    "department": "Economics",
+    "areas": ["Economics", "Finance"],
+    "intro": "As with our students, our faculty range from a richly diverse number of nationalities across all schools. With over 500 professors at the university, each discipline benefits from their own community of highly experienced members. Browse, search, and filter to meet our faculty members and learn how they can help guide you towards your chosen career.",
+    "experience": [
+      "Adjunct Professor of Economics, IE University (2018–present)",
+      "Senior Economist, Central Bank (2012–2018)"
+    ],
+    "academicBackground": [
+      "PhD in Economics, MIT",
+      "BSc in Mathematics, UCL"
+    ]
+  },
+  {
+    "id": 2,
+    "slug": "adam-magdar-2",
+    "name": "Adam Magdar",
+    "photo": "https://randomuser.me/api/portraits/men/9.jpg",
+    "email": "adam.magdar@university.edu",
+    "phone": "+1 (555) 010-1002",
+    "category": "Visiting",
+    "department": "Digital & Tech Law",
+    "areas": ["Digital & Tech Law", "Comparative Politics"],
+    "intro": "Adam researches the intersection of law, technology, and public policy.",
+    "experience": [
+      "Visiting Scholar, IE Law School (2023–present)",
+      "Policy Counsel, Tech Policy Institute (2016–2023)"
+    ],
+    "academicBackground": [
+      "LLM in Law & Technology, Stanford",
+      "LLB, University of Manchester"
+    ]
+  },
+  {
+    "id": 3,
+    "slug": "adela-gomez-alonso-3",
+    "name": "Adela Gómez Alonso",
+    "photo": "https://randomuser.me/api/portraits/women/68.jpg",
+    "email": "adela.gomez@university.edu",
+    "phone": "+34 600 100 003",
+    "category": "Full-time",
+    "department": "International Relations",
+    "areas": ["International Relations", "Business"],
+    "intro": "Adela focuses on diplomacy and global business strategy.",
+    "experience": [
+      "Associate Professor of International Relations, IE (2015–present)",
+      "Consultant, Global Strategy Firm (2010–2015)"
+    ],
+    "academicBackground": [
+      "PhD in International Relations, LSE",
+      "MA in Global Affairs, Georgetown"
+    ]
+  },
+  {
+    "id": 4,
+    "slug": "adrian-carrio-fernandez-4",
+    "name": "Adrián Carrió Fernández",
+    "photo": "https://randomuser.me/api/portraits/men/22.jpg",
+    "email": "adrian.carrio@university.edu",
+    "phone": "+34 600 100 004",
+    "category": "Adjunct",
+    "department": "Entrepreneurship",
+    "areas": ["Entrepreneurship", "Business"],
+    "intro": "Adrián mentors early-stage founders and teaches venture creation.",
+    "experience": [
+      "Adjunct Professor of Entrepreneurship, IE (2019–present)",
+      "Founder & CEO, StartUp X (2013–2019)"
+    ],
+    "academicBackground": [
+      "MBA, IE Business School",
+      "BBA, Complutense University"
+    ]
+  },
+    {
+    "id": 5,
+    "slug": "Dr. Syed Imran Jami",
+    "name": "Dr. Syed-Imran Jami",
+    "photo": "https://jinnah.edu/wp-content/uploads/2020/05/Dr.-Syed-Imran-Jami-scaled.jpg",
+    "email": "imran.jami@jinnah.edu",
+    "phone": "+34 600 100 004",
+    "category": "Adjunct",
+    "department": "Computer Science",
+    "areas": ["Entrepreneurship", "Business"],
+    "intro": "Dr. Syed Imran Jami received his B.S. in Computer Science from the University of Karachi in 2001, M.S. in Computer Science from Lahore University of Management Sciences in 2004 and Ph.D. in Computer Science from the National University of Computer & Emerging Sciences in 2011. He is one of the founding members of Center for Research in Ubiquitous Computing and associated with it since 2006. He also worked with Haptics Research Lab and Pervasive and Networked Systems Research Group at Deakin University, Australia. Till now Dr. Jami has authored 24 research papers in conferences and journals of international repute. He is also a member of several professional organizations including ACM, IAENG, SIAM etc. He worked as the Head of Computer Science Department at DHA Suffa University, Karachi. Before that, he had worked at University of Karachi, LUMS, Deakin University and FAST-NU under different capacities. Currently, he is working as Professor and Dean Academics at M. A. Jinnah University. His areas of research include provenance system, social and semantic computing, cloud computing, and software agents.",
+    "experience": [
+      "Adjunct Professor of Entrepreneurship, IE (2019–present)",
+      "Founder & CEO, StartUp X (2013–2019)"
+    ],
+    "academicBackground": [
+      "PHD, FAST Pakistan  (2015)",
+      "BBA, Complutense University"
+    ]
+  }
+]
